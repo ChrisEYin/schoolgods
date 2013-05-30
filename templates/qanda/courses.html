@@ -1,0 +1,19 @@
+<html>
+
+<h1> <a href = "/home/">Schoolgods</a></h1>
+
+<h2><a href = "/home/{{ department.id }}">{{ department.subject }}</a></h2>
+
+{% if courses %}
+    <ul>
+    {% for course in courses %}
+        <li><a href="/home/{{ department.id }}/{{ course.id }}/">{{ course.department }} {{ course.number }} {{ course.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No classes are available.</p>
+{% endif %}
+
+</body>
+
+</html>

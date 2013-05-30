@@ -1,0 +1,75 @@
+.fullwrapper {
+  background: url("../img/cheating_fade.jpg") 50% 0% no-repeat;
+  height:1000px;
+  width:100%;
+}
+
+.navigation{
+	margin-top:10px;
+	background:#g6g6g6;
+	}
+
+.logo{
+	margin-top:15px;
+	margin-left:20px;
+	font-size:36px;
+	}
+	
+.signin{
+	float:right;
+	right:5;
+	margin-top:10px;
+	margin-bottom:5px;
+	}
+
+.register {
+	float:right;
+	right:5;
+	border:0px solid green;
+	}
+
+.forgotPassword{
+	padding-left:75px;
+	border:0px solid red;
+	}
+	
+
+
+.row {
+	border:0px solid green;
+	}
+	
+.span3 {
+	border:0px solid green;
+	}
+
+.span4 {
+	border:0px solid green;
+	}
+	
+#sign_up {
+	position:absolute;
+	top:0;
+	width:400px;
+	border:1px solid black;
+	background:#969696;
+	z-index:9999;
+	padding:10px;
+	box-shadow: 0px 0px 20px #333333;
+		-moz-box-shadow: 0px 0px 20px #333333;
+		-webkit-box-shadow: 0px 0px 20px #333333;
+	border-radius:13px;
+		-moz-border-radius: 13px;
+		-webkit-border-radius: 13px;
+	}
+	
+#mask {
+	display:none;
+	background: #000;
+	position: fixed; left:0; top:0;
+	width:100%;
+	height:100%;
+	opacity:0.5;
+	z-index:999;
+	}
+	

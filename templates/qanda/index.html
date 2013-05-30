@@ -1,0 +1,127 @@
+<!-- test 
+<html>
+
+<h1> <a href = "/home/">Schoolgods</a></h1>
+
+{% if departments %}
+    <ul>
+    {% for department in departments %}
+        <li><a href="/home/{{ department.id }}/">{{ department.subject }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No classes are available.</p>
+{% endif %}
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>School Gods - The Ultimate Note Sharing Platform</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}static/js/jQuery.jGlideMenu.067.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}static/js/base.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			// Initialize Menu
+			$('#jGlide_001').jGlideMenu({
+				tileSource	: '.jGlide_001_tiles' , 
+				demoMode	: true 
+			}).show();
+
+			// Connect "Toggle" Link	
+			$('#switch').click(function(){$(this).jGlideMenuToggle();});
+		});
+</script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/css/scaffolding.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/css/index.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/css/button.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/css/jGlideMenu.css" />
+
+</head>
+<body>
+<div class="fullwrapper">
+<div class="container">
+	<div class="navigation">
+	<div class="row">
+		<div class="span4">
+			<div class="logo">
+				<a href="#"><img src="img/schoolgods_logo.gif"></img></a>
+			</div>
+		</div>
+		<div class="signin">
+		<div class="span3">
+
+					Username:<input type="text" placeholder="Email">
+		</div>	
+		<div class="span3">		
+					Password:<input type="text" placeholder="Password">
+		</div>			
+		<div class="span1">		
+					<input type="submit" value="Sign In" class="btn-small btn-inverse">
+
+		</div>
+		</div>
+
+		<div class="register">
+			<div class="row">
+				<div class="span3 offset1">		
+					<a href="#" class="forgotPassword">Forgot your password?</a>
+				</div>			
+				<div class="span1">		
+					<div id="registerButton">		
+						<a href="registration.html"><input type="submit" value="Register" class="btn-small btn-inverse"></a>
+					</div>
+				</div>
+			</div>	
+		</div>	
+		
+
+	</div>
+	</div>
+
+
+<!-- Menu Holder -->
+<div class="row">
+	<div class="span9 offset4">
+		<div class="jGM_box" id="jGlide_001">
+			<!-- Tiles for Menu -->
+			<ul id="tile_001" class="jGlide_001_tiles" title="Choose course below" alt="Select your class below">
+				{% for department in departments %}
+					<li rel = "department_{{ department.id }}">{{ department.subject }}</li>
+				{% endfor %}
+					<li rel = "1"> Test </li>
+			</ul>
+			
+			{% regroup courses by departments as department_list %}
+			
+			{% for department in department_list %}
+				<ul id = "department_{{ department.id }}" class = "jGlide_001_tiles" title = "Choose class" alt = "Choose your class now">
+					{% for course in department_list %}
+						<li rel = "course_{{ course.id }}">{{ course.number }} {{ course.name }}</li>
+					{% endfor %}
+				</ul>
+			{% endfor %}
+			
+			<ul id = "1">
+				<li rel = #> Test 2</li>
+			</ul>
+			
+			{% regroup professors by courses as course_list %}
+			
+			{% for course in course_list %}
+				<ul id = "course_{{ course.id }}">
+					{% for professor in course_list %}
+						<li rel = #>{{ professor.name }} </li>
+					{% endfor %}
+				</ul>
+			{% endfor %}
+			
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+</body>
+
+</html>

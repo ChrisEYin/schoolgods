@@ -1,0 +1,23 @@
+<html>
+
+<h1><a href = "/home/"> Schoolgods </a></h1>
+
+<h2><a href = "/home/{{ department.id }}/">{{ department.subject }}</a></h2>
+<h3><a href = "/home/{{ department.id }}/{{ course.id }}/">{{ course.department }} {{ course.number }} {{ course.name }}</a></h3>
+<h4><a href = "/home/{{ department.id }}/{{ course.id }}/{{ professor.id }}">{{ professor.name }}</a></h4>
+<h5><a href = "/home/{{ department.id }}/{{ course.id }}/{{ professor.id }}/{{ question.id }}">{{ question.question_text }}</a></h5>
+
+
+{% if answers %}
+    <ul>
+    {% for answer in answers %}
+        <li><a href=#>{{ answer.answer_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Noone has answered.</p>
+{% endif %}
+
+</body>
+
+</html>
